@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 472276}
   - 33: {fileID: 3301998}
   - 23: {fileID: 2387648}
+  - 54: {fileID: 5492834}
+  - 136: {fileID: 13674724}
+  - 114: {fileID: 11413990}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -60,6 +63,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154644}
   m_Mesh: {fileID: 4300000, guid: e142b09ceff9b9440a6b91d70c05fc01, type: 3}
+--- !u!54 &5492834
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154644}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 3.40282347e+38
+  m_AngularDrag: 3.40282347e+38
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!114 &11413990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0dea382c9f90e4eab3467578b6bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &13674724
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .0142021999
+  m_Height: .004903669
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
