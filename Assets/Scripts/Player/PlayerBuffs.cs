@@ -8,8 +8,6 @@ public class PlayerBuffs : MonoBehaviour {
     public bool hasSpeedBuff = false;
     public float timeLeft = 10.0f;
 	
-	void Awake () {
-
     void Awake()
     {
 
@@ -27,7 +25,6 @@ public class PlayerBuffs : MonoBehaviour {
                 //Debug.Log(new { message = "Hit" });
                 speed = 0;
                 hasSpeedBuff = false;
-
                 timeLeft = 10f;
             }
         }
@@ -39,9 +36,18 @@ public class PlayerBuffs : MonoBehaviour {
 		armor += 3;
 	}
 
-	public void RemoveShieldTick()
+	// Returns true if a tick was removed 
+	public bool RemoveShieldTick()
 	{
-		armor -= 1;
+		bool HadShieldTick = true;
+
+		if (armor > 0) {
+			armor--;
+		} else {
+			HadShieldTick = false;
+		}
+
+		return HadShieldTick;
 	}
 
 	public void AddSpeedBonus()
