@@ -7,101 +7,96 @@ public class PlayerHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
-	public Slider shieldSlider;
+    public Slider shieldSlider;
     public Image damageImage;
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
-	public Color shieldFlashColor = new Color(0f, 1f, 1f, .01f);
-
-
+    public Color shieldFlashColor = new Color(0f, 1f, 1f, .01f);
 
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
-	PlayerBuffs playerBuffs;
+    PlayerBuffs playerBuffs;
     bool isDead;
     bool damaged;
-	bool shieldDamaged;
+    bool shieldDamaged;
 
-
-    void Awake ()
+    void Awake()
     {
-        anim = GetComponent <Animator> ();
-        playerAudio = GetComponent <AudioSource> ();
-        playerMovement = GetComponent <PlayerMovement> ();
-        playerShooting = GetComponentInChildren <PlayerShooting> ();
-		playerBuffs = GetComponent <PlayerBuffs> ();
-
+        anim = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerShooting = GetComponentInChildren<PlayerShooting>();
+        playerBuffs = GetComponent<PlayerBuffs>();
 
         currentHealth = startingHealth;
     }
 
-
-    void Update ()
+    void Update()
     {
-		shieldSlider.value = playerBuffs.armor;
+        shieldSlider.value = playerBuffs.armor;
 
-        if (damaged) 
-		{
-			damageImage.color = flashColour;
-		} 
-		else if (shieldDamaged) 
-		{
-			damageImage.color = shieldFlashColor;
-		} 
-		else 
-		{
-			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-		}
+        if (damaged)
+        {
+            damageImage.color = flashColour;
+        }
+        else if (shieldDamaged)
+        {
+            damageImage.color = shieldFlashColor;
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
         damaged = false;
-		shieldDamaged = false;
+        shieldDamaged = false;
     }
 
-	 
-    public void TakeDamage (int amount)
+    public void TakeDamage(int amount)
     {
-		if (playerBuffs.RemoveShieldTick()) {
+        if (playerBuffs.RemoveShieldTick())
+        {
+            shieldDamaged = true;
+            shieldSlider.value = playerBuffs.armor;
+            // Shield tick has been removed and no damage is taken
 
-			shieldDamaged = true;
-			shieldSlider.value = playerBuffs.armor;
-			// Shield tick has been removed and no damage is taken
+        }
+        else
+        { // No Shield was available, continue with damage
+            damaged = true;
 
-		} else { // No Shield was available, continue with damage
-			damaged = true;
+            currentHealth -= amount;
 
-			currentHealth -= amount;
+            healthSlider.value = currentHealth;
 
-			healthSlider.value = currentHealth;
+            playerAudio.Play();
 
-			playerAudio.Play ();
-
-			if (currentHealth <= 0 && !isDead) {
-				Death ();
-			}
-		}
+            if (currentHealth <= 0 && !isDead)
+            {
+                Death();
+            }
+        }
     }
 
-
-    void Death ()
+    void Death()
     {
         isDead = true;
 
-        playerShooting.DisableEffects ();
+        playerShooting.DisableEffects();
 
-        anim.SetTrigger ("Die");
+        anim.SetTrigger("Die");
 
         playerAudio.clip = deathClip;
-        playerAudio.Play ();
+        playerAudio.Play();
 
         playerMovement.enabled = false;
         playerShooting.enabled = false;
     }
 
-
-    public void RestartLevel ()
+    public void RestartLevel()
     {
-        Application.LoadLevel (Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);
     }
 }
