@@ -20,8 +20,17 @@ public class PlayerBuffs : MonoBehaviour {
 		armor += 3;
 	}
 
-	public void RemoveShieldTick()
+	// Returns true if a tick was removed 
+	public bool RemoveShieldTick()
 	{
-		armor -= 1;
+		bool HadShieldTick = true;
+
+		if (armor > 0) {
+			armor--;
+		} else {
+			HadShieldTick = false;
+		}
+
+		return HadShieldTick;
 	}
 }
