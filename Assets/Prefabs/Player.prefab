@@ -67,6 +67,7 @@ GameObject:
   - 136: {fileID: 13696384}
   - 114: {fileID: 11445598}
   - 114: {fileID: 11419444}
+  - 114: {fileID: 11476740}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -341,10 +342,12 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   healthSlider: {fileID: 0}
+  shieldSlider: {fileID: 0}
   damageImage: {fileID: 0}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
-  flashColour: {r: 1, g: 0, b: 0, a: .411764711}
+  flashColour: {r: .948529422, g: 0, b: 0, a: .458823532}
+  shieldFlashColor: {r: .0477941297, g: .95588237, b: .95588237, a: .458823532}
 --- !u!114 &11445598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,6 +374,18 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: .150000006
   range: 100
+--- !u!114 &11476740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022daf13510b538428a1549fd8421cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: 0
 --- !u!120 &12019544
 LineRenderer:
   m_ObjectHideFlags: 1
