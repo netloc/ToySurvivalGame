@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerBuffs : MonoBehaviour
-{
+public class PlayerBuffs : MonoBehaviour {
 
     public int armor;
     public float speed;
     public bool hasSpeedBuff = false;
     public float timeLeft = 10.0f;
-
+	
+	void Awake () {
 
     void Awake()
     {
@@ -31,30 +31,31 @@ public class PlayerBuffs : MonoBehaviour
                 timeLeft = 10f;
             }
         }
-    }
 
-    public void AddShieldBonus()
-    {
-        armor += 3;
-    }
+	}
 
-    public void RemoveShieldTick()
-    {
-        armor -= 1;
-    }
+	public void AddShieldBonus()
+	{
+		armor += 3;
+	}
 
-    public void AddSpeedBonus()
-    {
-        speed += 12;
-        hasSpeedBuff = true;
-    }
+	public void RemoveShieldTick()
+	{
+		armor -= 1;
+	}
 
-    public void RemoveSpeedBonus()
-    {
-        if (hasSpeedBuff)
-        {
-            speed -= 12;
-            hasSpeedBuff = false;
-        }
-    }
+	public void AddSpeedBonus()
+	{
+		speed += 12;
+		hasSpeedBuff = true;
+	}
+
+	public void RemoveSpeedBonus()
+	{
+		if (hasSpeedBuff)
+		{
+		    speed -= 12;
+		    hasSpeedBuff = false;
+		}
+	}
 }
