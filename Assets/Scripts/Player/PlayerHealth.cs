@@ -7,10 +7,12 @@ public class PlayerHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
+	public Slider shieldSlider;
     public Image damageImage;
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	public Color shieldFlashColor = new Color(0f, 1f, 1f, .01f);
 
 
 
@@ -18,9 +20,10 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
-	BuffManager playerManager;
+	PlayerBuffs playerBuffs;
     bool isDead;
     bool damaged;
+	bool shieldDamaged;
 
 
     void Awake ()
@@ -29,38 +32,55 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
+		playerBuffs = GetComponent <PlayerBuffs> ();
+
+
         currentHealth = startingHealth;
     }
 
 
     void Update ()
     {
-        if(damaged)
-        {
-            damageImage.color = flashColour;
-        }
-        else
-        {
-            damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }
+		shieldSlider.value = playerBuffs.armor;
+
+        if (damaged) 
+		{
+			damageImage.color = flashColour;
+		} 
+		else if (shieldDamaged) 
+		{
+			damageImage.color = shieldFlashColor;
+		} 
+		else 
+		{
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
         damaged = false;
+		shieldDamaged = false;
     }
 
-
+	 
     public void TakeDamage (int amount)
     {
-        damaged = true;
+		if (playerBuffs.RemoveShieldTick()) {
 
-        currentHealth -= amount;
+			shieldDamaged = true;
+			shieldSlider.value = playerBuffs.armor;
+			// Shield tick has been removed and no damage is taken
 
-        healthSlider.value = currentHealth;
+		} else { // No Shield was available, continue with damage
+			damaged = true;
 
-        playerAudio.Play ();
+			currentHealth -= amount;
 
-        if(currentHealth <= 0 && !isDead)
-        {
-            Death ();
-        }
+			healthSlider.value = currentHealth;
+
+			playerAudio.Play ();
+
+			if (currentHealth <= 0 && !isDead) {
+				Death ();
+			}
+		}
     }
 
 
