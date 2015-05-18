@@ -40,13 +40,13 @@ public class PlayerMovement : MonoBehaviour
 		//If the player has hit the speed buff
 		if (playerBuffs.hasSpeedBuff)
 		{
-            //If the player has the buff used the increased speed from the playbuffs script instead of the base speed
-            movement = movement.normalized * playerBuffs.speed * Time.deltaTime;
+			//If the player has the buff used the increased speed from the playbuffs script instead of the base speed
+			movement = movement.normalized * playerBuffs.speed * Time.deltaTime;
 		}
 		else
 		{
-            // Move 6 units a second and normalize it so that it is the same speed in any direction as well as per second.
-            movement = movement.normalized * speed * Time.deltaTime;
+			// Move 6 units a second and normalize it so that it is the same speed in any direction as well as per second.
+			movement = movement.normalized * speed * Time.deltaTime;
 			playerBuffs.RemoveSpeedBonus();
 		}
 

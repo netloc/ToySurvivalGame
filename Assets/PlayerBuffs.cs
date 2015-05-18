@@ -27,6 +27,8 @@ public class PlayerBuffs : MonoBehaviour
                 //Debug.Log(new { message = "Hit" });
                 speed = 0;
                 hasSpeedBuff = false;
+
+                timeLeft = 10f;
             }
         }
     }
