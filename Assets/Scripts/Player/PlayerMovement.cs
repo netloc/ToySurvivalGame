@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength = 100f;
+	PlayerBuffs playerBuffs;
 
 	void Awake()
 	{
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
 
+		playerBuffs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBuffs>();
 
 		// Would set the root motion to true, already checked in unity properties
 		//anim.applyRootMotion = true;
@@ -35,8 +37,18 @@ public class PlayerMovement : MonoBehaviour
 	{
 		movement.Set (h, 0f, v);
 
-		// Move 6 units a second and normalize it so that it is the same speed in any direction as well as per second.
-		movement = movement.normalized * speed * Time.deltaTime;
+		//If the player has hit the speed buff
+		if (playerBuffs.hasSpeedBuff)
+		{
+            //If the player has the buff used the increased speed from the playbuffs script instead of the base speed
+            movement = movement.normalized * playerBuffs.speed * Time.deltaTime;
+		}
+		else
+		{
+            // Move 6 units a second and normalize it so that it is the same speed in any direction as well as per second.
+            movement = movement.normalized * speed * Time.deltaTime;
+			playerBuffs.RemoveSpeedBonus();
+		}
 
 		// Moves
 		playerRigidbody.MovePosition (transform.position + movement);
