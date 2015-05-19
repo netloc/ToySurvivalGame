@@ -382,10 +382,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 181124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022daf13510b538428a1549fd8421cbe, type: 3}
+  m_Script: {fileID: 11500000, guid: bc6f45affd9477d4498b8d4f7a8eab5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   armor: 0
+  speed: 0
+  hasSpeedBuff: 0
+  timeLeft: 10
 --- !u!120 &12019544
 LineRenderer:
   m_ObjectHideFlags: 1
