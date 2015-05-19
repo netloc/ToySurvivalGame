@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 475454}
   - 33: {fileID: 3345028}
   - 23: {fileID: 2347460}
+  - 54: {fileID: 5423068}
+  - 135: {fileID: 13576678}
+  - 114: {fileID: 11482200}
   m_Layer: 0
   m_Name: MercuryFeet
   m_TagString: Untagged
@@ -24,7 +27,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119592}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106709}
+<<<<<<< HEAD
   m_LocalPosition: {x: 14, y: 2, z: 0}
+=======
+  m_LocalPosition: {x: 14, y: 1, z: 0}
+>>>>>>> origin/master
   m_LocalScale: {x: 75, y: 75, z: 75}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,6 +67,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119592}
   m_Mesh: {fileID: 4300000, guid: e48328d02866976469c4747be157dcc4, type: 3}
+--- !u!54 &5423068
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119592}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &11482200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a094c7e4320bcb42827e5efc5f96f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buff: 1
+--- !u!135 &13576678
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .00830012001
+  m_Center: {x: -.000166824902, y: .00180001953, z: .00247255457}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
