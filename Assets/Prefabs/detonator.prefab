@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3303590}
   - 23: {fileID: 2304374}
   m_Layer: 0
-  m_Name: Detonator
+  m_Name: detonator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
