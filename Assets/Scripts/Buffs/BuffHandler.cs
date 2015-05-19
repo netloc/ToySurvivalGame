@@ -11,7 +11,6 @@ public enum BuffNames
 public class BuffHandler : MonoBehaviour
 {
     GameObject player;
-    PlayerHealth playerHealth;
     PlayerBuffs playerBuffs;
 
     public BuffNames Buff;
@@ -19,7 +18,6 @@ public class BuffHandler : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
         playerBuffs = player.GetComponent<PlayerBuffs>();
     }
 
@@ -28,22 +26,26 @@ public class BuffHandler : MonoBehaviour
     {
     }
 
-    	void OnTriggerEnter (Collider other)
-		{
-			if (other.gameObject == player) {
-				switch (Buff) {
-				case BuffNames.Shield:
-                playerBuffs.AddShieldBonus();
-                break;
-				case BuffNames.Speed:
-                playerBuffs.AddSpeedBonus();
-                Destroy(this.gameObject);
-                break;
-				default:
-					// Do nothing the buff is not implemented
-					break;
-        }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            switch (Buff)
+            {
+                case BuffNames.Shield:
+                    playerBuffs.AddShieldBonus();
+                    break;
+                case BuffNames.Speed:
+                    playerBuffs.AddSpeedBonus();
+                    Destroy(this.gameObject);
+                    break;
+                default:
+                    // Do nothing the buff is not implemented
+                    break;
+            }
 
-			Destroy (this.gameObject);
-		}
-		}
+            Destroy(this.gameObject);
+        }
+    }
+}
+		
