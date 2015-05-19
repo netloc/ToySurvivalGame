@@ -5,7 +5,8 @@ using System;
 public enum BuffNames
 {
     Shield,
-    Speed
+    Speed,
+    Damage
 }
 
 public class BuffHandler : MonoBehaviour
@@ -37,7 +38,9 @@ public class BuffHandler : MonoBehaviour
                     break;
                 case BuffNames.Speed:
                     playerBuffs.AddSpeedBonus();
-                    Destroy(this.gameObject);
+                    break;
+                case BuffNames.Damage:
+                    playerBuffs.AddDamageBonus();
                     break;
                 default:
                     // Do nothing the buff is not implemented

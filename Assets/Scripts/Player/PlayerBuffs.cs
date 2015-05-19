@@ -6,7 +6,9 @@ public class PlayerBuffs : MonoBehaviour
 
     public int armor;
     public float speed;
+    public int damage;
     public bool hasSpeedBuff = false;
+    public bool hasDamageBuff = false;
     public float timeLeft = 10.0f;
 
     void Awake()
@@ -17,7 +19,7 @@ public class PlayerBuffs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasSpeedBuff && timeLeft >= 0)
+        if ((hasDamageBuff || hasSpeedBuff) && timeLeft >= 0)
         {
             timeLeft -= Time.deltaTime;
 
@@ -25,7 +27,9 @@ public class PlayerBuffs : MonoBehaviour
             {
                 //Debug.Log(new { message = "Hit" });
                 RemoveSpeedBonus();
+                RemoveDamageBonus();
                 hasSpeedBuff = false;
+                hasDamageBuff = false;
 
                 timeLeft = 10f;
             }
@@ -68,5 +72,16 @@ public class PlayerBuffs : MonoBehaviour
             speed -= 12;
             hasSpeedBuff = false;
         }
+    }
+
+    public void AddDamageBonus()
+    {
+        damage += 10;
+    }
+
+    public void RemoveDamageBonus()
+    {
+        if (damage >= 10)
+            damage -= 10;
     }
 }
