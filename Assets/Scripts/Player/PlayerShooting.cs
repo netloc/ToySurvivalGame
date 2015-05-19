@@ -56,6 +56,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
+        damagePerShot = 20;
         if (playerBuffs.hasDamageBuff)
         {
             damagePerShot += playerBuffs.damage;
