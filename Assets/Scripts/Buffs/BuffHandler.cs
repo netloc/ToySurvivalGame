@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public enum Buffs
+public enum BuffNames
 {
     Shield,
     Speed
@@ -14,7 +14,7 @@ public class BuffHandler : MonoBehaviour
     PlayerHealth playerHealth;
     PlayerBuffs playerBuffs;
 
-    public Buffs buffNames;
+    public BuffNames Buff;
 
     void Awake()
     {
@@ -32,18 +32,18 @@ public class BuffHandler : MonoBehaviour
 		{
 			if (other.gameObject == player) {
 				switch (Buff) {
-				case Buffs.Shield:
-					playerBuffs.AddShieldBonus ();
-					break;
-	            case Buffs.Speed:
-	                playerBuffs.AddSpeedBonus();
-	                Destroy(this.gameObject);
-	                break;
+				case BuffNames.Shield:
+                playerBuffs.AddShieldBonus();
+                break;
+				case BuffNames.Speed:
+                playerBuffs.AddSpeedBonus();
+                Destroy(this.gameObject);
+                break;
 				default:
 					// Do nothing the buff is not implemented
 					break;
-			}
+        }
 
 			Destroy (this.gameObject);
 		}
-				}
+		}
