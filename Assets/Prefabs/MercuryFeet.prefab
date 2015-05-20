@@ -13,6 +13,7 @@ GameObject:
   - 54: {fileID: 5423068}
   - 135: {fileID: 13576678}
   - 114: {fileID: 11482200}
+  - 114: {fileID: 11493268}
   m_Layer: 0
   m_Name: MercuryFeet
   m_TagString: Untagged
@@ -86,10 +87,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 119592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0dea382c9f90e4eab3467578b6bbae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a094c7e4320bcb42827e5efc5f96f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Buff: 1
+--- !u!114 &11493268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20967eb773676f4b8a58f086dc3ed3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &13576678
 SphereCollider:
   m_ObjectHideFlags: 1

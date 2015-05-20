@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healthSlider: {fileID: 0}
   shieldSlider: {fileID: 0}
   damageImage: {fileID: 0}

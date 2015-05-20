@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
     public AudioClip deathClip;
+	public BuffSpawner buffSpawner;
 
 
     Animator anim;
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
+	Transform EnemyTransform;
 
 
     void Awake ()
@@ -23,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
-
+		EnemyTransform = GetComponent <Transform> ();
         currentHealth = startingHealth;
     }
 
@@ -58,6 +60,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Death ()
     {
+		buffSpawner.PossiblySpawnBuff (EnemyTransform);
+
         isDead = true;
 
         capsuleCollider.isTrigger = true;
