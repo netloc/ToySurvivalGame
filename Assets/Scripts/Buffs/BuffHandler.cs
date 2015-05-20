@@ -45,7 +45,8 @@ public class BuffHandler : MonoBehaviour
 					playerBuffs.AddDamageBonus();
 					break;
                 case BuffNames.Bomb:
-                    GameObject.FindGameObjectsWithTag("Enemy").ToList().ForEach(x => Destroy(x));
+                    var enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+                        enemies.ForEach(x => Destroy(x));
                     break;
 				default:
 					// Do nothing the buff is not implemented
