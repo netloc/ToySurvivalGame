@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 
 public enum BuffNames
 {
 	Shield,
 	Speed,
-	Damage
+	Damage,
+    Bomb
 }
 
 public class BuffHandler : MonoBehaviour
@@ -42,6 +44,9 @@ public class BuffHandler : MonoBehaviour
 				case BuffNames.Damage:
 					playerBuffs.AddDamageBonus();
 					break;
+                case BuffNames.Bomb:
+                    GameObject.FindGameObjectsWithTag("Enemy").ToList().ForEach(x => Destroy(x));
+                    break;
 				default:
 					// Do nothing the buff is not implemented
 					break;

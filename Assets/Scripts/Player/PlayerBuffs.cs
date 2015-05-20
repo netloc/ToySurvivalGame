@@ -93,7 +93,7 @@ public class PlayerBuffs : MonoBehaviour
     public void RemoveDamageBonus()
     {
         var lineRenderer = (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<LineRenderer>() as LineRenderer);
-        SetLineRendererColor(lineRenderer, Color.white, Color.white);
+        SetLineRendererColor(lineRenderer, Color.white, Color.black);
         hasDamageBuff = false;
         if (damage >= 10)
             damage -= 10;
