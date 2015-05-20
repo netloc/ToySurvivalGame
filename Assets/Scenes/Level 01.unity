@@ -177,6 +177,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8dd71bb112409d40b197844765a0c9c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &69822304 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11419444, guid: d0c9c060a2243004d877ae99190e7f75,
+    type: 2}
+  m_PrefabInternal: {fileID: 1919710570}
+  m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
+--- !u!4 &69822310 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 492776, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
+  m_PrefabInternal: {fileID: 1919710570}
 --- !u!1 &97368754
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!114 &393670449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4c8546452f9f54a9724c1733ec5c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1432738490}
+  target: {fileID: 69822310}
   smoothing: 5
 --- !u!1 &416934844
 GameObject:
@@ -885,6 +895,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22489018, guid: a8dd71bb112409d40b197844765a0c9c,
     type: 2}
   m_PrefabInternal: {fileID: 39558616}
+--- !u!114 &903542629 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11492098, guid: a8dd71bb112409d40b197844765a0c9c,
+    type: 2}
+  m_PrefabInternal: {fileID: 39558616}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &916611073
 Prefab:
   m_ObjectHideFlags: 0
@@ -927,6 +943,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34d22316e26d62c4986db5a50429ed25, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &923193893 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11462096, guid: a8dd71bb112409d40b197844765a0c9c,
+    type: 2}
+  m_PrefabInternal: {fileID: 39558616}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &997211751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,11 +1024,11 @@ Prefab:
     - target: {fileID: 11434962, guid: a80832032295ac241928cc9cb65c553c, type: 2}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 1432738492}
+      objectReference: {fileID: 69822304}
     - target: {fileID: 11434962, guid: a80832032295ac241928cc9cb65c553c, type: 2}
       propertyPath: spawnPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 97368755}
+      objectReference: {fileID: 157852727}
     - target: {fileID: 11463772, guid: a80832032295ac241928cc9cb65c553c, type: 2}
       propertyPath: spawnPoints.Array.data[0]
       value: 
@@ -1015,6 +1037,10 @@ Prefab:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 157852727}
+    - target: {fileID: 11485356, guid: a80832032295ac241928cc9cb65c553c, type: 2}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 97368755}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a80832032295ac241928cc9cb65c553c, type: 2}
   m_IsPrefabParent: 0
@@ -1368,7 +1394,7 @@ Prefab:
     - target: {fileID: 11419444, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 1603358673}
+      objectReference: {fileID: 903542629}
     - target: {fileID: 11419444, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
       propertyPath: shieldSlider
       value: 
@@ -1376,7 +1402,7 @@ Prefab:
     - target: {fileID: 11419444, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
       propertyPath: damageImage
       value: 
-      objectReference: {fileID: 368148536}
+      objectReference: {fileID: 923193893}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
   m_IsPrefabParent: 0
@@ -1460,7 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_Sprite: {fileID: 21300000, guid: be3542c214efad3408c04336a3272073, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fe8f29df962b3447b7632a188ca67a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
