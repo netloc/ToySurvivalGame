@@ -12,6 +12,7 @@ GameObject:
   - 54: {fileID: 5497306}
   - 65: {fileID: 6536818}
   - 114: {fileID: 11423790}
+  - 114: {fileID: 11413888}
   m_Layer: 0
   m_Name: DamageBoost
   m_TagString: Untagged
@@ -58,6 +59,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .639393091, y: .812421679, z: -1.59396207}
   m_Center: {x: .292152405, y: .312989473, z: .419507027}
+--- !u!114 &11413888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20967eb773676f4b8a58f086dc3ed3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11423790
 MonoBehaviour:
   m_ObjectHideFlags: 1
