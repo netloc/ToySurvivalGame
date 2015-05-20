@@ -1,66 +1,107 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BuffSpawner : MonoBehaviour {
+public class BuffSpawner : MonoBehaviour
+{
 
-	public GameObject Shield;
-		
-	public GameObject MercuryFeet;
+    public GameObject Shield;
 
-	public PlayerBuffs PlayerBuffs;
+    public GameObject MercuryFeet;
 
-	public bool shieldOnMap = false;
+    public GameObject Detonator;
 
-	public bool MercuryFeetOnMap = false;
+    public GameObject DamageBoost;
 
-	void Awake() {
+    public PlayerBuffs PlayerBuffs;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    public static bool shieldOnMap = false;
 
-	}
+    public static bool MercuryFeetOnMap = false;
 
-	public void PossiblySpawnBuff(Transform transform)
-	{
-		int value = Random.Range (0, 100);
+    public static bool DamageBoostOnMap = false;
 
-		if (value >= 50) {
-			if (PlayerBuffs.armor > 0 || shieldOnMap)
-			{
-				// Player already has buff
-				shieldOnMap = false;
-			}
-			else
-			{
-				var testValue = transform.position;
+    public int enemiesNeededForMapClear = 25;
 
-				testValue.y = 2;
+    void Awake()
+    {
 
-				Instantiate (Shield, testValue, new Quaternion (0f, 45f, 90f, 45f));
+    }
 
-				shieldOnMap = true;
-			}
-		} 
-		else 
-		{
-			if (PlayerBuffs.hasSpeedBuff || MercuryFeetOnMap)
-			{
-				// PLayer already has buff
-				MercuryFeetOnMap = false;
-			}
-			else
-			{
-				var testValue = transform.position;
-				
-				testValue.y = 1;
-				
-				Instantiate (MercuryFeet, testValue, new Quaternion (0f, 45f, 90f, 45f));
+    // Update is called once per frame
+    void Update()
+    {
 
-				MercuryFeetOnMap = true;
-			}
-		}
+    }
 
-	}
+    public void PossiblySpawnBuff(Transform transform)
+    {
+        int value = Random.Range(0, 100);
+
+        if (value >= 25 && value <= 50)
+        {
+            if (PlayerBuffs.hasDamageBuff || DamageBoostOnMap)
+            {
+                DamageBoostOnMap = false;
+            }
+            else
+            {
+                var transformPosition = transform.position;
+
+                transformPosition.y = 1;
+
+                Instantiate(DamageBoost, transformPosition, new Quaternion(0f, 45f, 90f, 45f));
+
+                DamageBoostOnMap = true;
+            }
+        }
+        else if (value >= 0 && value <= 25)
+        {
+            if (PlayerBuffs.hasSpeedBuff || MercuryFeetOnMap)
+            {
+                // Player already has buff
+                MercuryFeetOnMap = false;
+            }
+            else
+            {
+                var transformPosition = transform.position;
+
+                transformPosition.y = 1;
+
+                Instantiate(MercuryFeet, transformPosition, new Quaternion(0f, 45f, 90f, 45f));
+
+                MercuryFeetOnMap = true;
+            }
+        }
+        else if (value >= 50)
+        {
+            if (PlayerBuffs.armor > 0 || shieldOnMap)
+            {
+                // Player already has buff
+                shieldOnMap = false;
+            }
+            else
+            {
+                var transformPosition = transform.position;
+
+                transformPosition.y = 2;
+
+                Instantiate(Shield, transformPosition, new Quaternion(0f, 45f, 90f, 45f));
+
+                shieldOnMap = true;
+            }
+        }
+        else if ((value >= 0 && value <= 10) && EnemyManager.EnemiesOnMap > enemiesNeededForMapClear)
+        {
+            var transformPosition = transform.position;
+
+            transformPosition.y = 2;
+
+            Instantiate(Detonator, transformPosition, new Quaternion(0f, 45f, 90f, 45f));
+        }
+        else
+        {
+            
+        }
+
+    }
 }

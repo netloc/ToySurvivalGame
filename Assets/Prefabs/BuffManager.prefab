@@ -43,9 +43,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shield: {fileID: 154644, guid: 34d22316e26d62c4986db5a50429ed25, type: 2}
   MercuryFeet: {fileID: 119592, guid: ad423865c10766040a5d95739012af70, type: 2}
+  Detonator: {fileID: 159616, guid: 973b99197486c4643ba914a07e7f7237, type: 2}
+  DamageBoost: {fileID: 114828, guid: 9abf83b89a3d60c4282248ee048e0a36, type: 2}
   PlayerBuffs: {fileID: 11476740, guid: d0c9c060a2243004d877ae99190e7f75, type: 2}
-  shieldOnMap: 0
-  MercuryFeetOnMap: 1
+  enemiesNeededForMapClear: 25
 --- !u!114 &11456596
 MonoBehaviour:
   m_ObjectHideFlags: 1
