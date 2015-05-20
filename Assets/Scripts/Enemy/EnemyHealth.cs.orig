@@ -19,13 +19,21 @@ public class EnemyHealth : MonoBehaviour
 	Transform EnemyTransform;
 
 
-    void Awake ()
+    void Awake()
     {
+<<<<<<< HEAD
         anim = GetComponent <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
 		EnemyTransform = GetComponent <Transform> ();
+=======
+        anim = GetComponent<Animator>();
+        enemyAudio = GetComponent<AudioSource>();
+        hitParticles = GetComponentInChildren<ParticleSystem>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+
+>>>>>>> origin/master
         currentHealth = startingHealth;
     }
 
@@ -58,7 +66,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    void Death ()
+    void Death()
     {
 		buffSpawner.PossiblySpawnBuff (EnemyTransform);
 

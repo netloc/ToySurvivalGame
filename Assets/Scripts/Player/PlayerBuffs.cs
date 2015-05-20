@@ -6,8 +6,11 @@ public class PlayerBuffs : MonoBehaviour
 
     public int armor;
     public float speed;
+    public int damage;
     public bool hasSpeedBuff = false;
-    public float timeLeft = 10.0f;
+    public bool hasDamageBuff = false;
+    public float speedTimer = 10.0f;
+    public float damageTimer = 10f;
 
     void Awake()
     {
@@ -17,20 +20,29 @@ public class PlayerBuffs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasSpeedBuff && timeLeft >= 0)
+        if (hasDamageBuff && damageTimer >= 0)
         {
-            timeLeft -= Time.deltaTime;
+            damageTimer -= Time.deltaTime;
 
-            if (timeLeft <= 0)
+            if (damageTimer <= 0)
             {
-                //Debug.Log(new { message = "Hit" });
-                RemoveSpeedBonus();
-                hasSpeedBuff = false;
+                RemoveDamageBonus();
+                hasDamageBuff = false;
 
-                timeLeft = 10f;
+                damageTimer = 10f;
             }
         }
+        if (hasSpeedBuff && speedTimer >= 0)
+        {
+            speedTimer -= Time.deltaTime;
 
+            if (speedTimer <= 0)
+            {
+                RemoveSpeedBonus();
+                hasSpeedBuff = false;
+                speedTimer = 10f;
+            }
+        }
     }
 
     public void AddShieldBonus()
@@ -68,5 +80,29 @@ public class PlayerBuffs : MonoBehaviour
             speed -= 12;
             hasSpeedBuff = false;
         }
+    }
+
+    public void AddDamageBonus()
+    {
+        var lineRenderer = (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<LineRenderer>() as LineRenderer);
+        SetLineRendererColor(lineRenderer, Color.red, Color.red);
+        hasDamageBuff = true;
+        damage += 10;
+    }
+
+    public void RemoveDamageBonus()
+    {
+        var lineRenderer = (GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<LineRenderer>() as LineRenderer);
+        SetLineRendererColor(lineRenderer, Color.white, Color.white);
+        hasDamageBuff = false;
+        if (damage >= 10)
+            damage -= 10;
+    }
+
+    private void SetLineRendererColor(LineRenderer lineRenderer, Color startColor, Color endColor)
+    {
+        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+
+        lineRenderer.SetColors(startColor, endColor);
     }
 }
