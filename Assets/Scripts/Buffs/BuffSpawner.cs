@@ -37,7 +37,7 @@ public class BuffSpawner : MonoBehaviour
     {
         int value = Random.Range(0, 100);
 
-        if (value >= 25 && value <= 50)
+        if (value >= 25 && value <= 50 || (value >= 75 && value <= 100))
         {
             if (PlayerBuffs.hasDamageBuff || DamageBoostOnMap)
             {
@@ -72,7 +72,7 @@ public class BuffSpawner : MonoBehaviour
                 MercuryFeetOnMap = true;
             }
         }
-        else if (value >= 50)
+        else if (value >= 50 && value <= 75)
         {
             if (PlayerBuffs.armor > 0 || shieldOnMap)
             {
@@ -100,8 +100,13 @@ public class BuffSpawner : MonoBehaviour
         }
         else
         {
-            
+            //value will always be between 0 and 100
         }
 
+    }
+
+    private void StartRotation(GameObject gameObject, Vector3 transformPosition, Quaternion rotation)
+    {
+        Instantiate(gameObject, transformPosition, rotation);
     }
 }
