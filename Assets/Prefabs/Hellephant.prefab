@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 175
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 50
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: .5
-  attackDamage: 30
+  attackDamage: 25
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
